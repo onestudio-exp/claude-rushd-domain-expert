@@ -1,2 +1,161 @@
-# claude-rushd-domain-expert
-Rushd is a domain-aware decision system for complex product, growth, and technical decisions, with WalletPlus as the primary implementation.
+# Rushd — Domain Expert Agent
+
+> **Rushd is not just an AI agent.**
+> **It is a domain-aware decision system.**
+
+---
+
+> الخبير المتخصص في WalletPlus لتجار سلة في السوق السعودي.
+
+**Rushd** هو **Domain Expert Agent** — نظام قرار يفهم المجال قبل أن يقترح أي حل. هو ليس مولّد كود، ولا مساعد عام، بل مرجع موثوق للقرارات المتعلقة بأنظمة المحفظة، الكاش باك، الإحالة، نمو التجار، وسياسات سلة.
+
+> **WalletPlus is the primary implementation, not the limitation.**
+> الإطار الذي يعمل به رُشد قابل للتطبيق على أي منتج يحتاج خبير دومين — WalletPlus هو التطبيق الأول والمرجعي، وليس الحد الأقصى.
+
+---
+
+## Before / After
+
+**Without Rushd:**
+> Generic answers, missed rules, risky decisions.
+> إجابات عامة، تجاهل للقواعد، قرارات خطيرة في الإنتاج.
+
+**With Rushd:**
+> Domain-aware decisions, safer implementation, real product thinking.
+> قرارات مبنية على فهم المجال، تنفيذ أكثر أمانًا، تفكير منتج حقيقي.
+
+---
+
+## ما هو Domain Expert Agent؟
+
+في معظم المشاريع، الفجوة الحقيقية ليست في كتابة الكود — بل في **معرفة المجال**.
+مهندس قد يبني ميزة كاش باك بساعات قليلة، لكن قرار **متى تُمنح المكافأة، وماذا يحدث عند الإلغاء، وكيف نمنع التحايل** يحتاج خبرة في:
+
+- منظومة سلة Salla و WalletPlus
+- أنظمة الكاش باك و Referrals و Customer Wallet
+- سلوك التاجر والعميل السعودي
+- متطلبات المنتج، الـ UX، الـ QA
+- التجارة الإلكترونية في السعودية والخليج
+
+**رُشد** هو الإجابة على هذه الفجوة — agent متخصص يحلّل الأسئلة، يتحقق من السياسات، ويقدّم توصيات مبنية على مصادر موثقة (citations، علامات ثقة، اعتراض حازم لما يلزم).
+
+---
+
+## محتويات هذا المستودع
+
+```
+.claude/
+├── agents/
+│   ├── rushd-domain-expert.md     ← الفكرة الأساسية (الـ Domain Expert)
+│   └── walletplus-tech-expert.md  ← مكمّل (للأسئلة البرمجية)
+├── knowledge/
+│   └── walletplus-business/        ← قاعدة المعرفة الكاملة
+│       ├── README.md               ← فهرس المعرفة
+│       ├── update-log.md           ← كل تغيير في المعرفة
+│       ├── verified-facts.md       ← cache من الحقائق الموثّقة
+│       ├── policies/               ← سياسات سلة و WalletPlus
+│       ├── pricing/                ← أسعار وخطط
+│       ├── competitors/            ← مقارنة مع المنافسين
+│       └── playbooks/              ← أسلوب اتخاذ القرار
+└── settings.local.json             ← إعدادات Claude Code
+
+presentations/
+├── rushd-pitch.html                ← العرض التقديمي الأساسي
+├── demo-script.md                  ← سكريبت التقديم المفضّل
+└── images/                         ← لقطات شاشة لردود رُشد
+```
+
+---
+
+## الـ Agents
+
+### `rushd-domain-expert` — Domain Expert
+
+الفكرة الأساسية لهذا المستودع. خبير في المجال، مش بيكتب كود.
+
+استخدمه لما تكون عندك سؤال عن:
+
+- متى تُمنح مكافأة الكاش باك؟ ومتى تُسحب؟
+- كيف نتعامل مع طلب ملغى بعد منح المكافأة؟
+- ما هي حدود برنامج الإحالة لمنع التحايل؟
+- كيف نقسّم التجار (شريحة صغيرة / متوسطة / كبيرة) ونوصي بميزات لكل شريحة؟
+- ما هو السعر المناسب لخطة WalletPlus لتاجر سلة في السعودية؟
+- مقارنة مع تطبيقات سلة المنافسة
+
+### `walletplus-tech-expert` — Code Agent (مكمّل)
+
+خبير في الكود الخاص بمشروع WalletPlus. للأسئلة البرمجية فقط.
+
+**العلاقة بينهم:** `walletplus-tech-expert` بيوجّه السؤال الاستراتيجي لـ `rushd-domain-expert`، و `rushd-domain-expert` بيوجّه السؤال البرمجي لـ `walletplus-tech-expert`. كل واحد في تخصصه.
+
+---
+
+## كيفية الاستخدام
+
+### 1) استخدام مع Claude Code
+
+انسخ مجلد `.claude/` إلى جذر مشروعك:
+
+```bash
+cp -R .claude /path/to/your/project/
+```
+
+افتح Claude Code، اطرح سؤالاً متعلقاً بـ WalletPlus أو سلة. الـ agent بيُستدعى تلقائياً (في الـ `description` مكتوب `Use PROACTIVELY`).
+
+### 2) استدعاء صريح
+
+```
+@rushd-domain-expert
+هل نطبّق كاش باك على الطلبات المدفوعة بـ "تابي"؟ وما هي المخاطر؟
+```
+
+### 3) من Agent SDK / API
+
+اقرأ `.claude/agents/rushd-domain-expert.md` لفهم الـ persona والـ playbook، ثم استخدم نفس البنية مع أي LLM.
+
+---
+
+## مثال على ما يفعله رُشد
+
+**سؤال خطير:** "نبغى نطلق حملة كاش باك 20% لكل التجار الأسبوع الجاي — موافق؟"
+
+**رد رُشد:** يبدأ بـ "لا، ما تعملش ده"، يستشهد بـ X ملفات معرفة و روابط رسمية (سياسة سلة + سلوك تاجر سعودي)، يشرح المخاطر الفعلية (هامش ربح سالب، سحب التجار بعد انتهاء العرض، تعوّد العميل على الخصم)، ويقدّم بديلاً متدرّجاً من 5 خطوات.
+
+شاهد الرد الكامل في [`presentations/demo-script.md`](presentations/demo-script.md).
+
+---
+
+## للعرض التقديمي
+
+افتح [`presentations/rushd-pitch.html`](presentations/rushd-pitch.html) في المتصفح — 5 سلايدات بتصميم نظيف:
+
+1. ما هو رُشد؟
+2. أين المشكلة؟
+3. بدون / مع رُشد
+4. كيف يفكر رُشد؟
+5. الخلاصة
+
+---
+
+## كيف تتم إدارة المعرفة
+
+1. **التخزين:** كل المعرفة في ملفات Markdown داخل `.claude/knowledge/walletplus-business/`.
+2. **التحديث:** دوري حسب نوع المعرفة:
+   - أسعار سلة و WalletPlus: كل ربع سنة
+   - سياسات سلة + الأنظمة السعودية: مرتين في السنة
+   - سلوك المستهلك: سنوياً
+   - مقارنة منافسي سلة: سنوياً
+3. **التحميل:** Claude يقوم بتحميل المعرفة تلقائياً عند الحاجة.
+4. **التوثيق:**
+   - `update-log.md` — كل تغيير في المعرفة
+   - `verified-facts.md` — cache من الحقائق الموثّقة بمصادرها وتواريخ التحقق
+
+تفاصيل كاملة في [`.claude/knowledge/walletplus-business/README.md`](.claude/knowledge/walletplus-business/README.md).
+
+---
+
+## السياق
+
+تم بناء رُشد كجزء من مبادرة **Domain Expert Agents**، لإثبات أن الخبرة المتخصصة في المجال أهم من القدرة على كتابة الكود لتجنّب القرارات الخاطئة في منتجات معقّدة.
+
+**سياق المشروع الأصلي:** WalletPlus — تطبيق على منصة سلة يخدم تجار التجزئة في السوق السعودي بأنظمة محفظة، كاش باك، وإحالة.

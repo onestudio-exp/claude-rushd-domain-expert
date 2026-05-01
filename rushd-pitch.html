@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<title>رُشد — Domain Expert لـ WalletPlus</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  :root {
+    --bg: #0b0d12;
+    --fg: #f5f7fb;
+    --muted: #9aa3b2;
+    --accent: #7c5cff;
+    --accent-2: #00d4a8;
+    --card: #14171f;
+    --border: #232733;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+    font-family: -apple-system, "SF Pro Display", "Segoe UI", "Tajawal", sans-serif;
+    scroll-behavior: smooth; scroll-snap-type: y mandatory; height: 100%; overflow-y: scroll; }
+  .slide { min-height: 100vh; scroll-snap-align: start; padding: 8vh 8vw; display: flex;
+    flex-direction: column; justify-content: center; border-bottom: 1px solid var(--border); }
+  .eyebrow { color: var(--accent); letter-spacing: .2em; font-size: 12px; margin-bottom: 16px; }
+  h1 { font-size: clamp(32px, 5vw, 64px); margin: 0 0 24px; line-height: 1.15; }
+  h2 { font-size: clamp(24px, 3vw, 40px); margin: 0 0 16px; color: var(--fg); }
+  p, li { font-size: clamp(16px, 1.6vw, 22px); color: var(--muted); line-height: 1.7; }
+  .badge { display: inline-block; padding: 6px 14px; border: 1px solid var(--border);
+    border-radius: 999px; font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+  .card.bad { border-color: #3a1f1f; }
+  .card.good { border-color: #1f3a30; }
+  .card h3 { margin: 0 0 12px; color: var(--fg); font-size: 18px; }
+  .card.bad h3::before { content: "✕  "; color: #ff6b6b; }
+  .card.good h3::before { content: "✓  "; color: var(--accent-2); }
+  .nav { position: fixed; bottom: 24px; left: 24px; color: var(--muted); font-size: 12px;
+    background: rgba(20,23,31,.7); backdrop-filter: blur(10px); padding: 8px 14px; border-radius: 999px;
+    border: 1px solid var(--border); }
+  .accent { color: var(--accent-2); }
+  ul { padding-inline-start: 24px; }
+  li { margin-bottom: 10px; }
+  .end { text-align: center; }
+  .end h1 { font-size: clamp(36px, 6vw, 80px); }
+  .end p { max-width: 600px; margin: 16px auto; }
+</style>
+</head>
+<body>
+
+<section class="slide">
+  <div class="eyebrow">DOMAIN EXPERT AGENT</div>
+  <h1>رُشد</h1>
+  <p style="font-size: clamp(20px, 2.2vw, 28px); color: var(--fg); max-width: 720px;">
+    خبير ذكي يساعدك تتخذ قرارات صحيحة في <span class="accent">WalletPlus</span> على منصة سلة.
+  </p>
+  <p>هو لا يكتب كود فقط — بل يفهم كيف يعمل النظام فعليًا قبل أن يقترح أي حل.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">المشكلة</div>
+  <h2>الذكاء الاصطناعي العام يعطي حلولًا عامة.</h2>
+  <p>لكن في المنتجات الحقيقية، كل قرار له تأثير:</p>
+  <ul>
+    <li>متى نطبّق المكافأة؟</li>
+    <li>ماذا يحدث إذا أُلغي الطلب بعد منح الكاش باك؟</li>
+    <li>كيف نمنع التحايل في برنامج الإحالة؟</li>
+  </ul>
+  <p style="margin-top:24px;">هذي ليست أسئلة كود. هذي أسئلة <span class="accent">منطق وفهم</span>.</p>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">قبل / بعد</div>
+  <h2>الفرق بين العام والمتخصص</h2>
+  <div class="grid">
+    <div class="card bad">
+      <h3>بدون خبير دومين</h3>
+      <ul>
+        <li>حلول عامة</li>
+        <li>تجاهل السياسات</li>
+        <li>قرارات سطحية</li>
+        <li>مخاطر خفية</li>
+      </ul>
+    </div>
+    <div class="card good">
+      <h3>مع رُشد</h3>
+      <ul>
+        <li>الإجابة الصحيحة، مستندة بمصادر</li>
+        <li>معالجة الحالات المعقّدة</li>
+        <li>قرارات أدق وأكثر أمانًا</li>
+        <li>citations + علامات ثقة</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="eyebrow">المنهجية</div>
+  <h2>كيف يفكر رُشد؟</h2>
+  <p>قبل أن يقترح أي حل، يفهم:</p>
+  <ul>
+    <li>ما هي مكونات النظام (الطلبات، المستخدمين، العمليات)</li>
+    <li>كيف تسير الخطوات من البداية للنهاية</li>
+    <li>ما هي القواعد التي يجب الالتزام بها</li>
+    <li>ما هي الحالات الخاصة أو الخطيرة</li>
+  </ul>
+  <p style="margin-top:24px;">بناءً على ذلك، يعطيك قرارًا واضحًا: <span class="accent">هل ننفذ؟ ولماذا؟ وكيف؟</span></p>
+</section>
+
+<section class="slide end">
+  <div class="eyebrow">الخلاصة</div>
+  <h1>الذكاء بدون فهم… يعطي إجابات.<br/><span class="accent">مع فهم الدومين… يعطي قرارات.</span></h1>
+  <p>رُشد ليس مجرد أداة ترد عليك — بل عقل يفكر معك قبل أن تقرر.</p>
+</section>
+
+<div class="nav">↓ scroll · أو استخدم أسهم الكيبورد</div>
+
+<script>
+  document.addEventListener('keydown', (e) => {
+    const slides = [...document.querySelectorAll('.slide')];
+    const top = window.scrollY;
+    const idx = slides.findIndex(s => s.offsetTop > top + 10);
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') {
+      e.preventDefault();
+      const next = idx === -1 ? slides.length - 1 : idx;
+      slides[next]?.scrollIntoView({ behavior: 'smooth' });
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      const cur = slides.findIndex(s => Math.abs(s.offsetTop - top) < 10);
+      const prev = Math.max(0, (cur === -1 ? 0 : cur) - 1);
+      slides[prev]?.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>
+</body>
+</html>
